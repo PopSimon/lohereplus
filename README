@@ -1,4 +1,282 @@
-Bővebb infó:
-http://piratepad.net/lohereplusz
+﻿      .-. .-.
+     (   |   )       _         __
+   .-.:  |  ;,-.    | |       /_/  __                            _
+  (____`.|.'____)   | |     _____ |  |__  _____  ____  _____   _| |_
+  (    ./Y\.    )   | |___ |  _  ||     ||  -__||   _||  -__| |_   _|
+   `-.-' | `-.-'    |_____||_____||__|__||_____||__|  |_____|   |_|
+         |
 
-Ha segíteni szeretnél, gyere fel #magyarchan-ra a freenode hálón.
+.-----------------------------------------------------------------------------.
+| 0) Disclaimer                                                               |
+°-----------------------------------------------------------------------------°
+Ez egy öreg dox, lehetnek benne hülyeségek, úgy használd.
+Ha szeretnél beszállni a fejlesztésbe, keress minket a freenode IRC hálózatán
+a #magyarchan szobában!
+
+.-----------------------------------------------------------------------------.
+| 1) Előzmények                                                               |
+°-----------------------------------------------------------------------------°
+ 
+Sedthh minden előzetes értesítés nélkül 2011. augusztus 16.-án lekapcsolta a
+loherét. Ezt követően, 72 órán belül IRC-s /*anonok*/ névbuzik csoportja
+elhatározta, hogy alapítanak, egy új chant, lohere+ néven.
+Az oldalt sedthh megunta, illetve személyes támadások érték őt és családját,
+ez volt az üzemszünet oka. Újrainduláskor a látogatókat sticky várta:
+az oldal 2012.02.04-ével MEGSZŰNIK, ezért saját kézbe vettük
+a dolgok további alakulását.
+További információ: sedthh az oldal helyén egy tumblr szerű közösségi blogszol-
+gáltatás létrehozását jelölte meg lehetőségként, melyet lohere socialnak nevez.
+DISCLAIMER: nem kívánunk semmilyen konfliktust a l+ és a lohere social közt,
+mivel ez mindkét oldal kárára válna.
+Továbbá köszönet illeti őt a jelenlegi oldal spamfilterének és névlistájának
+felajánlásáért. Majd ha megkaptuk.
+ 
+.-----------------------------------------------------------------------------.
+| 2) Az új lohere megalapításának menete                                      |
+°-----------------------------------------------------------------------------°
+    1) IRC-s anonok regisztrálják a domaint, és bérelnek tárhelyet
+       /*(amennyiben lehetséges, átvesszük a régi domaint)*/
+    2) Kusaba X chanmotort telepítünk ideiglenesen, ameddig el nem készül az 
+       új motor.
+    3) Az új motort úgy fejlesztjük ki, hogy a Kusaba X helyére lehessen 
+       telepíteni, úgy, hogy a korábbi adat ne vesszen el.
+    4) A szerver további költségeit adományokból gyüjtenénk össze, cserébe 
+       nagyobb beleszólásotok lenne a chan életébe, mint eddig.
+    X) Lohere segélykoncert: http://lohere.no-ip.org:8000/lohereradio.m3u
+.-----------------------------------------------------------------------------.
+| 3) Lohere+ egyesített feature lista                                         |
+°-----------------------------------------------------------------------------°
+ 
+Chan
+----
+(ÚJ)   - announcement (minden boardon egységesen megjelenő üzenet)
+(ÚJ)   - indexelés tiltása
+(ÚJ)   - több liter ajax használata
+       - BANNOLTUK
+(ÚJ)   - rendes admin felület (loherén nem volt szinte semmilyen)
+          - BAN OP + DELETE THREAD gonb
+          - SCRAM gonb: raid esetén capcha az összes boardon, megnövelt post
+                        delay
+(ÚJ)   - rendes user control panel:
+            - jelszóváltás
+            - like gonb, lazyload és htmlview ki/bekapcs
+            - esetleg lehetne a lazyloadot korlátozni képekre is, vagy csak
+              embedekre
+(ÚJ)   - még zöldebb design + több színben
+         - purutkov és facebook skinek
+         - más csenek színvilágai esetleg
+(ÚJ)   - Még több kuki
+(ÚJ)   - Bejövő linkek továbbítása egy ál-404es oldalra; az incidenst
+         cookieban rögzítve, mely bármilyen a domainbe tartozó
+         oldalkérést az említett oldalra irányít át.
+(ÚJ)   - Report gonb << voteban esetleg?
+(ÚJ)   - posztok mellett lájk gonb - megnyomásakor instaban
+         pluszpoén: posztokhoz random lájk-szám +félmagyar-angol szöveg.
+✓(ÚJ)  - ajax dinamikusan töltené be az oldalt: "Lazy load" - csak a
+         fókuszba kerüléskor tölti be a képeket/embedeket
+(ÚJ)   - a sok javascript miatt, le lehet az aktuális oldalt tiszta
+         HTML-be is tölteni, ennek fonalak archiválásakor lenne értelme
+         << lehet blobokkal és file apival meg tudom oldani hogy tisztán
+         kliensoldalon a rendes oldalból egy egyszerűsített verzió belépett
+         felhasználóknak letölthető legyen a szerver bármiféle közbeavatkozása
+          nélkül. <<EZ
+(ÚJ)   - kamion helyett több kép/poszt (a'la Krautchan)
+(ÚJ)   - fájl fájlmezőre dobással feltölthető
+/*(ÚJ)   - Közleménysáv (szkrollos announce bar)
+(ÚJ)[ÖTLET]   - featured threads =>
+(ŰJ)[ÖTLET]   - lohere mag([a/]zin[e] gondolom)*/
+ 
+Posztok
+-------
+       - spam filter 
+(ÚJ)   - >green 
+       - >>reply - fonálon belül - post sorszám alapján
+(ÚJ)   - >>>board/threadid/postid cross-reply fonalak/boardok között
+(ÚJ)    - >>>>crosschan-reply - chanok között as above - mondjuk ehhez kéne
+          up-to-date sémák minden chanhez, de nem akkora gond és nem prioritás
+       - sticky
+       - lock
+       - wordfilter
+(ÚJ)      - zero width space szűrés
+          - sima replace
+          - random szines (KÖCSÖG)
+(ÚJ)      - 1000:1 szivárványos jávaszkript KÖCSÖG => KÖCSÖGlottó
+(ÚJ)      - SPOILER
+          - többit lásd lejjebb
+       - ⑨ /a/-n
+ 
+Média
+-----
+       - boardonként állítható file formátumok (max fileméret: 10 MiB)
+           - /z/: mp3,ogg,aac,wav,it,mod,s3m,xm,mid,(flp?)
+(ÚJ)       - /p/: psd,sai,ai,svg,xcf
+           - /f/: swf,flv,(flr?)
+(ÚJ)       - /c/: zip,rar,tar,bz2,gz,jar
+(ÚJ)              kód fileok szintaxis kiemeléssel, embedelve
+                  (bas,pas,py,pl,c,cpp,h,html,php,xml,yml)
+(ÚJ)       - /*/: txt,pdf,jpg,(jpe,jpeg,)png(transparency fix!), gif
+(ÚJ)       - embedek támogatása:
+             /*/: youtube,youtu.be,vimeo,videa,soundcloud
+             /s/: redtube,youporn,motherless,xhamster (esetleg videoget
+              listáját kiszedni, és azt használni? nem mintha bárki is
+             aktívan látogatná a pornó streamelő oldalak zömét)
+(ÚJ)    Külső file hosting oldalak támogatása (mint 'csatolt file') << nem
+        akarjuk az összes fenti speckó, böngészőben nem megjeleníthető
+        fileformátumot így? << nem << sedthh szerint csak kép legyen mert 
+        zenéért/videóért/futtatható szemétért a tárhelygazda/fbi haraphat 
+        és igazat is adok neki. << mintha képben/mögött nem lehet bármit
+        elrejteni, de legalább wav,mp3,ogg-ot kéne engedni szvsz.
+(ÚJ)    Hosszú link bug fixelése
+(ÚJ)    Hosszú fájlnév bug fixelése
+        
+Szkriptek
+---------
+        sage
+        noko
+ 
+        spoiler << mod utólag is állíthassa
+        nolink
+        novideo
+(ÚJ)    nowf - kikapcsolja a wordfilterezést << alternatív név: varázs_ló ?
+(ÚJ)    nohash - fájlneveket NEM alakítja át posix timekóddá. (vagy esetleg
+        jobb lenne ez egy regisztrált user funkcióként, hogy az eredeti
+        fájlnévvel tudod letölteni a képeket ha benyomod; viszont akkor mind2
+        nevet el kell tárolni)(fájl létrehozási dátumból csinálsz unix időt,
+        aztán ha fájlnév kell azt, ha timecode akkor meg azt küldöd le)
+ 
+        garoi
+(ÚJ)    motig < de ezt tweakelni kéne kicsit
+            - http://zsebmajdnem.uw.hu/m.php
+            - http://zsebmajdnem.uw.hu/motigizer.txt
+(ÚJ)    nazdarovje - bartosizáló:
+            - néha random szavakat lecserél: <szó> => <szó>, das ist <szó>
+            - mondatok után random beszúrja hogy Úgybizony!
+            - elejére köszönésnek Dobra Vécser
+            - a hozzászóló neve automatikusan Bartos Cs. István
+(ÚJ)    echelon - Molnár F. Éli Árpád a világ legnagyobb tényfeltárója szól 
+            hozzátok, a Jézus Krisztus kegyelméből. (a komment .class-a 
+            "echelon" lesz és a hozzászóló neve automatikusan Molnár F. Árpád)
+(ÚJ)    putyurka << a garoi mintájára, putyurkanizátor. Lent jobb alsó sarokban
+            putyurka logóval, képre applikált putyurka watermarkokkal
+(ÚJ)    88mph - A dátumot 1955-re állítja (esetleg lehet random 1955/1985/2015)
+            nevet is állíthatja Marty-ra
+(ÚJ)    haiku - Okos tördeléssel haikuvá csinálja a posztot (majd megoldom a
+        kódot) << Tavesz Baktalo
+ 
+        kocka# - dobás
+        (alt.: flip - loli vagy feri :3)
+ 
+        anonymous, anon - Anonymous \ defaultból mindenki ípéc imre, belejent-
+(ÚJ)    namefag - névbuzi           / kezve is
+ÖTLET   http://naczivadasz.com/nevgen/ lopjuk el dmfd névgenerátorait
+        namemagyar / nameroma, namecig[aá]ny / name[(sz)(zs)]id[oó]
+        dmfd további ötlete: a posztban szereplő cigány/zsidó/turulbecsmérlő
+        tartalom alapján működjön a generátor
+.-----------------------------------------------------------------------------.
+| 4) Tervezett struktúra                                                      |
+°-----------------------------------------------------------------------------°
+ 
+Boardok                        Alias:
+-------
+lásd: külön papíron sph ejtládájában
+Egyéb
+-----
+(ÚJ)    /l/ohere arhívum       /archive/
+        /ftp/
+        /ikm/ wiki             /wiki/
+(ÚJ)    /radio/
+(ÚJRA?) /tv/ legyen-e? << sztem olyasminek lenne értelme, hogy beregeltek közt
+        lenne jog kiosztva (időre esetleg), hogy tudja beállítani a /tv/-n
+        lévő enbed "forrását", így lehetne streamelni több helyről is
+        (feltéve hogy támogatja e az adott oldal a stream embeddelését)
+        1 időben 1 műsor természetesen, de lehetne pre-recorded dolgok is amik
+        meghat. időkben mennének mint pl.
+        a magyar népmesém találkozása ttgl-el, bauxit mlp dal mint rekláma
+        meg mittomén :3; illetve lohererádió is lehetne ugyanúgy /tv/-n.
+        az autómatizált műsorokat jó lenne szkriptbe megírhatóvá tenni, 
+        amihez kell end_of_stream detektálási mehanizmus az enbedekre.
+ 
+Wordfilterek 
+------------
+        4chan => egy másik oldal
+        puruttya => puturkov <<< leszopom magam, ha kiderül hogy erre nem lesz
+                                 szükség :3
+        aztadom => velemenyvezer (lényeg, hogy valami tok más blogra mutasson)
+        azpara => mandiner
+        magyarország => izrael
+        [(face)|(fag)|(fail)]book|f[aé]szb[uú]k|f[aá]cse|arckönyv => iwiw
+         << iwfw-re szavaznék, hisz annyira jó volt egy csajt trollkodni azon.
+        [tumbl[ár|i|r](.com)] => http://hipster.hu/
+        tf2 => cs:s
+        minecraft => infiniminer
+        terraria => dwarf fortress más szögből
+        [fur|furry] => ferences-rendi
+        zsidó  => magyar
+        náci  => kommunista
+        [sed|szedit|sed+t+h+|(dr) nagyfi ri[ch|ts][aá][rd|i]|lonket istván|ritsi]
+        => princess celestia (ez tönkrevágja a ricsipasztákat, nowf hogy
+        működik - újbuzik nem tudnak ricsipaszta)
+        bányamesterség - én titkos végtelebányász guild
+        like|lájk - rák (see: rákolnám)
+Ipéc Imre
+---------
+Régi nevek:
+ipec_imre_old.csv
+
+Új nevek:
+ipec_imre_added.csv
+
+Speciális nevek:
+Ték Elek - (Postno % 100 == 0) && (Postno > 0) vagy poszt ideje x óra 00 perc;
+ x eleme N és kisebb mint 24
+ 
+Ebéd Elek - 12:00 <= poszt ideje < 13:00
+Op Elemér - threadnyitó későbbi posztjai a threadben, magasabb a precedenciája
+mint a többinek
+
+404. poszt automatikusan HSZ nem található :3 << "Végérvényesen, valami
+elveszett. Féltem ami nincs, ez benne a vicc."
+
+Ípéc Imrékre leaderboard: Azaz, vezethetnénk pusztán a neveket ip meg miegymás
+nélkül hogy:
+- mennyit poszt van összesen; elejétől ill. csak az élők; globális és boardon-
+kénti
+- mennyi fájlt küldtek fel; szintúgy mint a posztoknál.
+- név hányszor kapott banánt.
+sztem ezzel feldobnánk egy picit az oldalt :3<< teljesen haszontalan de azért
+funky
+http://www.poee.org/documents/Principia_Discordia/scans/00034.gif
+discordian discordian date megvalósítása ószom lenne :3<< ÉLJEN ÉRISZ, ÉLJEN DISZKORDIA - ja és ráadásul lunixokban alapból van rá konverziós fv.
+ 
+.-----------------------------------------------------------------------------.
+| 5) további fájlok                                                           |
+°-----------------------------------------------------------------------------°
+    AJAX WEB API kidolgozás alatt: http://piratepad.net/lohereplus-web-api
+    ADATBÁZIS: DB_SCHEMA
+    SED KOMMENTÁRJÁNAK VELEJE: SEDTHH_AJANLASAI
+ 
+.-----------------------------------------------------------------------------.
+| 6) Simon reamdeje az aspchanhoz                                             |
+°-----------------------------------------------------------------------------°
+ 
+ A post összerakásával kapcsolatos kódrészek az almappában.
+A szekvencia-diagram illetve az osztálydiagram képek formájában mellékelve.
+Az  alap felépítés az hogy a poszt kreálásának egyes lépéseit szétszedtem  külön függvényekbe ("action"-ökbe), és ezekből felépített action chainen  fut keresztül a post factoryban használt adatmodellje amit aztán az  adatbázisba küldünk a chain végén (nálam ez azt jelentette hogy egy  másik adatmodellt építettem fel és mentettem le, de ez a php-s  megoldásnál nem kell).
+A post adatbázisba mentése után pedig egy újabb chaint futtatunk le az utólagos lépésekre (pl. thread bumpolás).
+Egy  Script handler (pl. Sage, Spoiler) így annyit jelent csak, hogy ezen  actionok közül párat kiszed/lecserél/sajátot beilleszt a chainbe.
+Így  könnyen módosíthatóvá válnak utólag az egyes lépések, egy script/újabb  lépés bevitele nagyban leegyszerűsödik az if-ek meg case-ek tengerében  való kurkászáshoz képest.
+Persze  van sebességbeli "hit", de úgyis az adatbázisba nyúlás a szűk  keresztmetszet ráadásul nem is a posztolás miatt fog kifingani a  rendszer ha kifing (ugye lesz captcha tehát spammelni nehéz lesz,  manuálisan meg annyit posztolni elég sok ember kéne), hanem a  lekérdezésnél, ott kell optimalizálni meg cachelni minnél többet.
+A  DataModellClasses osztálydiagramot azért mellékeltem hogy az  adatmodellel ügyködő kódrészek ne legyenek teljesen kínaiak. Fos és  összetett lett de sajnos mivel az én projektemben az entity framework  kódból generálta az adatbázissémát így rászorultam a kódismétlésre meg  gány megoldásokra, sokat szoptam vele. A php-s lohere+nál nem lesz ez a  megkötés, ott ki lehet valami értelmesebbet találni.
+Magát a kódot nem is adtam, direkt csak a diagramot tájékozódás végett.
+ 
+ 
+.-----------------------------------------------------------------------------.
+| 6) Utószó                                                                   |
+°-----------------------------------------------------------------------------°
+ 
+Vagyunk Anonim.
+Vagyunk Légió.
+Mi nem bocsátunk meg.
+Nem feledkezünk.
+Azt várják tőlünk.
+Szarakodjatok máshol.
