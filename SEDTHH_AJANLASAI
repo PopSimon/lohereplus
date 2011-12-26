@@ -1,0 +1,41 @@
+﻿report gonb:
+sedthh: mert biztos nem tudnának olyat hogy dinamikus ip-vel mindenkit reportolnak és az összes embert bannoltatják
+user ui:
+sedthh: topigot lehessen becsukni [collapselni] meg a képeket ki lehet nyittani a topigon belül
+~
+sedthh:  amikor youtube-ot raksz be akkor ne a flasht embedelje, hanem mint a  facebook csak egy képet rakjon be, és ha rákattintasz akkor menjen át  youtube-ra, akár nagyobb méretben is, mert így kurvára eroforrásigényes
+obnerlite: lazy load lesz: csak azt tölti be, ami fókuszba kerül
+sedthh: van youtube backend ami xml-ben átadja az ilyen infokat
+obnerlite: a többi placeholder
+obnerlite: de ez is jó ötlet
+sedthh: ha lefele görgetsz
+sedthh: azt értem de a memóriában akkor is ott marad
+sedthh: és 100 flash az 100 flash lazyn is
+sedthh: de a lazy is jó amúgy
+~
+sedthh: lapozás helyett lehetne hogy késobb tölti be a tovább gonbra a köv oldalt alulra
+algoritmusok, megoldások:
+sedthh:  az ip cím számaival csinálsz valami képletet aztán elosztod a névtár  elemeinek számával és azt a nevet választod ki amelyik a maradék helyén  áll
+~
+sedthh:  meg vannak kamu formok amiket nem láttok mert a css eltakarja de a  spambotok kitöltik mert csak a kódra mennek és aki abba ír arról tudod,  hogy spambot volt
+~
+sedthh: regelésnél szurjétek a kamu email címeket
+sedthh: az ilyen 5 perc alatt gyárthatósat, mert az userek 80%-a azzal regelt
+~
+Szikla_S_: amúgyis értelmes cucc csekkolja tán néha a cache sértetlenségét, nem?
+sedthh: nem, de nagyon ritkán sérül és van gonb amivel az egész újraírható
+sedthh: csak amikor szétfloodolják egyszerre többen és közben moderálunk akko rnéha egy-két topig szétmegy
+sedthh: flockkal nyitod meg a fájlokat és akkor nem írhat addig bele más script
+LohereTV/rádió:
+flash storaget ha csináltok rakjatok bele random gonbot
+~
+Szikla_S_: tehetnénk majd fel mp3 stream szervert rádióhoz, hogy tudja magát Motig produkálni.
+~
+obnerlite: lesz majd anounce sáv, ott lehet majd bohóckodni
+~
+sedthh: van aki lapoz amúgy
+sedthh: hogy feljön hetente egyszer és csak végigteker
+~
+sedthh: ennyi boardot sem csinálnék legalábbis nem a legelején
+filemegosztó support:
+sedthh:  mp3-at azért nem lehet feltölteni meg zip-et mert a rendszergazdám  megtiltotta mert abban úgyis lesz idovel valami ami illegális és azért  berúghatják rá az ajtót, szal én nem ajánlom a képeken túli megosztást
