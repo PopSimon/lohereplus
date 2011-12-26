@@ -1,0 +1,297 @@
+* {
+    font-family: trebuchet, sans-serif; /* a trebuchet ms nekem operában és chromeban hibásan jelent meg */
+}
+
+body {
+    background-color: #b9e456;/* #95b5c7 */
+    padding: 0px;
+    margin: 15px;
+    text-align: center;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    background-color: rgba(255, 255, 255, 0.33);
+}
+
+a:active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/**
+ * 	Menu
+ */
+header > nav {
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.1) 53%, rgba(255,255,255,0) 54%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.75)), color-stop(53%,rgba(255,255,255,0.1)), color-stop(54%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* W3C */
+    background-color: #424242;
+    color: white;
+    
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 0px 7px #222;
+    -webkit-box-shadow: 0px 0px 7px #222;
+    box-shadow: 0px 0px 7px #222;
+    padding: 2px 10px;
+    text-shadow: 0px 0px 5px white;
+    text-align: left;
+}
+
+header > nav > ul {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+}
+
+header > nav > ul:before {
+    content: "[";
+}
+
+header > nav > ul:after {
+    content: "]";
+}
+
+header > nav > ul > li {
+    list-style: none;
+    display: inline;
+    border-right: 1px solid rgba(255, 255, 255, 0.33);
+}
+
+header > nav > ul > li:last-child {
+    border-right: none;
+}
+
+header > nav > ul > li > a {
+    color: inherit;
+    padding: 2px 20px 2px 20px;
+    text-decoration: none;
+}
+
+header > nav > ul > li > a:hover {
+    background: -moz-linear-gradient(top, rgba(234,234,234,0) 0%, rgba(237,237,237,0.75) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(234,234,234,0)), color-stop(100%,rgba(237,237,237,0.75))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(234,234,234,0) 0%,rgba(237,237,237,0.75) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(234,234,234,0) 0%,rgba(237,237,237,0.75) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(234,234,234,0) 0%,rgba(237,237,237,0.75) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(234,234,234,0) 0%,rgba(237,237,237,0.75) 100%); /* W3C */
+}
+
+header > nav > ul > li > a:active {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/**
+ * 	Submit form
+ */
+form#msgform {
+    background-color: #424242;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 0px 7px #222;
+    -webkit-box-shadow: 0px 0px 7px #222;
+    box-shadow: 0px 0px 7px #222;
+    text-shadow: 0px 0px 5px white;
+    color: white;
+    
+    margin: 15px;
+    padding: 15px;
+    position: absolute;
+    left: 50%;
+    margin-left: -220px;
+    z-index: 1;
+}
+
+form#msgform img {
+    cursor: pointer;
+    width: 25px;
+    heigt: 25px;
+}
+
+form#msgform.unpinned {
+    background-color: rgba(66,66,66,0.5);
+    cursor: move;
+    position: fixed;
+}
+
+form#msgform > label {
+    display: block;
+    padding: 5px 0px;
+}
+
+form#msgform > label > p {
+    vertical-align: middle;
+    display: inline-block;
+    width: 25%;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+}
+
+form#msgform > label > textarea {
+    width: 400px;
+    min-height: 150px;
+}
+
+form#msgform > label > input, form#msgform > input {
+    width: 72%;
+    margin: 0px;
+}
+
+/**
+ * 	Content
+ */
+section.thread {
+    text-align: left;
+    position: absolute;
+    top: 370px;
+}
+
+section.thread > article {
+    float: left;
+    clear: left;
+    margin: 8px 0px;
+    margin-left: 20px;
+    color: black;
+    background-color: #d5d5d5;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0px 0px 7px #222;
+    -webkit-box-shadow: 0px 0px 7px #222;
+    box-shadow: 0px 0px 7px #222;
+}
+
+section.thread > article:first-child {
+    margin-left: 0px;
+}
+
+section.thread > article > footer {
+    padding: 2px;
+    color: white;
+    background: -moz-linear-gradient(top, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.1) 53%, rgba(255,255,255,0) 54%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.75)), color-stop(53%,rgba(255,255,255,0.1)), color-stop(54%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* IE10+ */
+    background: linear-gradient(top, rgba(255,255,255,0.75) 0%,rgba(255,255,255,0.1) 53%,rgba(255,255,255,0) 54%,rgba(255,255,255,0) 100%); /* W3C */
+    background-color: #424242;
+    -moz-box-shadow: 0px 2px 3px #222;
+    -webkit-box-shadow: 0px 2px 3px #222;
+    box-shadow: 0px 2px 3px #222;
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /*border-bottom: 1px solid #7e7e7e;*/
+}
+
+section.thread > article > footer > a {
+    color: inherit;
+}
+
+section.thread > article > footer > a:hover {
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+}
+
+section.thread > article > footer > p {
+    display: inline;
+    margin: 0px 15px;
+}
+
+section.thread > article > details {
+    display: block;
+    margin: 5px 12px;
+}
+
+section.thread > article > details > dl {
+    display: inline;
+    margin: 0px 15px;
+}
+
+section.thread > article > details > dl > dt, section.thread > article > details > dl > dd {
+    display: inline;
+    margin: 0px;
+}
+
+section.thread > article > details > dl > dt {
+    margin-left: 10px;
+}
+
+section.thread > article > details > dl > dt:first-child {
+    margin-left: 0px;
+}
+
+section.thread > article > p {
+   margin: 5px 12px 12px 12px;
+}
+
+section.thread > article > p > img, section.thread > article span.thumbnail {
+    float: left;
+    clear: left;
+    cursor: pointer;
+    margin: 0px 12px 12px 0px;
+    padding: 0px;
+    min-width: 100px;
+    min-height: 100px;
+    /*background-color: white;*/
+    background-image: url("../images/loading.gif");
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+section.thread > article > p > img.thumbnail, section.thread > article span.thumbnail {
+    max-height: 160px;
+    max-width: 160px;
+}
+
+section.thread > article > p > img.fullimg {
+    max-height: none;
+    max-width: none;
+}
+
+section.thread > article > p a, section.thread > article > details a {
+    color: #808080;
+}
+
+section.thread > article > p a:hover, section.thread > article > details a:hover {
+    color: #81aa24;
+}
+
+/**
+ * 	Scripts
+ */
+section.thread > article.sage {
+    background-image: url("../images/sage.jpg");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    /*background-color: #d5bcf4;*/
+}
+
+section.thread > article.echelon {
+    background-color: #3c426b;
+    color: #f7e6aa;
+    background-image: url("../images/eli.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+
+section.thread > article.echelon > p a, section.thread > article.echelon > details a{
+    color: #f1ca42;
+}
+
+section.thread > article.preview {
+    margin-left: 60px
+}
