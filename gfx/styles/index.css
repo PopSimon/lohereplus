@@ -1,0 +1,100 @@
+body {
+	background-color: #b9e456;/* #95b5c7 */
+	color: white;
+	font-family: trebuchet, sans-serif; /* a trebuchet ms nekem operában és chromeban hibásan jelent meg */
+	font-size: 13px;
+}
+div.center {
+	width: 800px;
+	height: 550px;
+	background-color: #424242;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -400px;
+	top: 50%;
+	margin-top: -275px;
+	-moz-box-shadow: 0px 0px 7px #222;
+	-webkit-box-shadow: 0px 0px 7px #222;
+	box-shadow: 0px 0px 7px #222;
+}
+a {
+	color: #95b5c7;
+	text-decoration: none;
+}
+a:hover {
+	color: white;
+}
+/**
+ * 	Header
+ */
+header {
+	width: 75%;
+	height: 100%;
+	float: left;
+	border-right: 25px white solid;
+}
+header p {
+	text-align: right;
+	margin-top: 88px;
+	margin-right: 5px;
+}
+header img {
+	margin-left: 50px;
+	margin-top: 10px;
+}
+header img#logo_over {
+	/*  */
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -205px;
+	margin-top: -100px;
+	height: 300px;
+	max-width: 500 px;
+}
+/**
+ * 	Menu
+ */
+nav {
+	width: 25%;
+	height: 450px;
+	float: right;
+	margin-left: -25px;
+	padding-top: 100px;
+}
+nav > ul {
+	margin: 0px;
+    padding: 0px;
+}
+nav > ul > li {
+    list-style: none;
+}
+nav a {
+	/* menüsor elemei */
+	font-family: lucida console, monospace;
+	color: black;
+	font-size: 13px;
+	line-height: 22px;
+	margin-left: 1px;
+	display: block;
+}
+nav a:hover {
+	color: #b9e456;
+	background-color: rgba(255,255,255,0.33);
+}
+/**
+ * 	Footer
+ */
+footer {
+	margin-top: 560px;
+	height: 30px;
+}
+footer p {
+	text-align: center;
+	color: #424242;
+	font-weight: bold;
+	font-size: 12px;
+}

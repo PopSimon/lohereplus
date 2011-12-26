@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="hu">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>magyarchan.net</title>
+		<meta name="description" content="Hivatalos magyar imageboard" />
+		<meta name="author" content="Anonymous" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<!-- styles -->
+		<link rel="stylesheet" href="styles/threadview.css" />
+		<!-- scripts -->
+		<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+		<script type="text/javascript" src="scripts/librarys/browsercompatibilitylib.js"></script>
+		<script type="text/javascript" src="scripts/librarys/jquery.js"></script>
+		<script type="text/javascript" src="scripts/librarys/jquery-ui-custom.js"></script>
+		<script type="text/javascript" src="scripts/librarys/DAT.GUI.min.js"></script>
+		<script type="text/javascript" src="scripts/librarys/jquery.appear-1.1.1.min.js"></script>
+		<script type="text/javascript" src="scripts/LOHERE.js"></script>
+		<script type="text/javascript" src="scripts/LOHERE_config.js"></script>
+		<script type="text/javascript" src="scripts/board_mixed.js"></script>
+		<!-- testdata -->
+		<script type="text/javascript" src="test/posts.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>
+						<a href="a/" title="anime">a</a>
+					</li>
+					<li>
+						<a href="b/" title="random">b</a>
+					</li>
+					<li>
+						<a href="c/" title="kocka">c</a>
+					</li>
+					<li>
+						<a href="f/" title="flash">f</a>
+					</li>
+					<li>
+						<a href="h/" title="hentai">h</a>
+					</li>
+					<li>
+						<a href="k/" title="média">k</a>
+					</li>
+					<li>
+						<a href="p/" title="kreatív">p</a>
+					</li>
+					<li>
+						<a href="r/" title="request">r</a>
+					</li>
+					<li>
+						<a href="s/" title="hölgyek">s</a>
+					</li>
+					<li>
+						<a href="t/" title="teaház">t</a>
+					</li>
+					<li>
+						<a href="v/" title="videójáték">v</a>
+					</li>
+					<li>
+						<a href="w/" title="háttérképek">w</a>
+					</li>
+					<li>
+						<a href="x/" title="meglepetés">x</a>
+					</li>
+					<li>
+						<a href="z/" title="zene">z</a>
+					</li>
+				</ul>
+				<ul>
+					<li><a href="index.html" title="főoldal">Home</a></li>
+					
+				</ul>
+			</nav>
+		</header>
+		<form id="msgform" accept-charset="utf-8" name="msgform">
+			<!--<command type="checkbox" label="pin" title="Az üzenetküldő rögzítése">Pin</command>-->
+			<img id="msgbox_pin" src="images/pin.png" alt="pin message form"/>
+			<label>
+				<p>
+					Script:
+				</p>
+				<input type="text" />
+			</label>
+			<label> 				<textarea>Az üzenet szövege</textarea> </label>
+			<label>
+				<p>
+					Csatolt kép:
+				</p>
+				<input type="file" />
+			</label>
+			<input type="submit" />
+		</form>
+		<section id="1234" class="thread">
+			<!-- id: thread id -->
+			<!--<article id="1234">
+				<footer>
+					<a href="#1234" name="1234">1234</a>
+					<p>
+						Citad Ella :(
+					</p>
+					<time pubdate datetime="2009-10-10T19:15-08:00">
+						2009-10-10T19:15-08:00
+					</time>
+				</footer>
+				<details>
+					<summary>
+						<a href="images/user/cica.jpg">cica.jpg</a>
+					</summary>
+					<dl>
+						<dt>
+							Felbontás:
+						</dt>
+						<dd>
+							242×209
+						</dd>
+						<dt>
+							Méret:
+						</dt>
+						<dd>
+							6,82 kB
+						</dd>
+					</dl>
+					<p>
+						Kattints a képre a nagyobb változatért!
+					</p>
+				</details>
+				<img src="images/user/cica.jpeg" alt="cica" />
+				<p>
+					Sziasztok, egy <span class="KOCSOG" style="color: #a1c232; background-color: #3fccb3;">KÖCSÖG</span> vagyok, kérlek erőszakoljátok meg az arcom.
+				</p>
+			</article>
+			<article id="1235" class="sage">
+				<footer>
+					<a href="#1235" name="1235">1235</a>
+					<p>
+						Magyar Csanád
+					</p>
+					<time pubdate datetime="2009-10-10T19:15-08:00">
+						2009-10-10T19:15-08:00
+					</time>
+				</footer>
+				<details>
+					<summary>
+						<a href="images/user/zsalyas_bill_gates.jpg">zsalyas_bill_gates.jpg</a>
+					</summary>
+					<dl>
+						<dt>
+							Felbontás:
+						</dt>
+						<dd>
+							480×360
+						</dd>
+						<dt>
+							Méret:
+						</dt>
+						<dd>
+							50,8 kB
+						</dd>
+					</dl>
+					<p>
+						Kattints a képre a nagyobb változatért!
+					</p>
+				</details>
+				<img src="images/user/zsalyas_bill_gates.jpg" alt="zsalyas_bill_gates" />
+				<p>
+					Zsálya
+				</p>
+			</article>
+			<article id="1236" class="echelon">
+				<footer>
+					<a href="#1235" name="1235">1235</a>
+					<p>
+						Molnár F. Árpád
+					</p>
+					<time pubdate datetime="2009-10-10T19:15-08:00">
+						2009-10-10T19:15-08:00
+					</time>
+				</footer>
+				<details>
+					<summary>
+						<a href="images/user/molnar_f_arpad_ns1.JPG">molnar_f_arpad_ns1.JPG</a>
+					</summary>
+					<dl>
+						<dt>
+							Felbontás:
+						</dt>
+						<dd>
+							480×360
+						</dd>
+						<dt>
+							Méret:
+						</dt>
+						<dd>
+							50,8 kB
+						</dd>
+					</dl>
+					<p>
+						Kattints a képre a nagyobb változatért!
+					</p>
+				</details>
+				<img src="images/user/molnar_f_arpad_ns1.JPG" alt="molnar_f_arpad_ns1" />
+				<p>
+					<a href="#1234" class="reply" rel="nofollow">>>1234</a> Infantilis és öngyilkos programozottság és non stop folyamatos implantálás okán nem tehetsz mást. Kizáratlak a rendszerből. Többet nem jöhetsz közénk. Tetteid nem fognak segíteni. Ez az életprogramod. Nincs többé kiút. Bemutatja magát a HÍRHÁTTÉR: mindazoknak, akik rosszul közeledtek: http://www.youtube.com/watch?v­=l5I1q4KhKNU
+				</p>
+			</article>-->
+		</section>
+		<footer></footer>
+	</body>
+</html>
