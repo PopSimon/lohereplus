@@ -269,7 +269,7 @@ Persze  van sebességbeli "hit", de úgyis az adatbázisba nyúlás a szűk  ker
 A  DataModellClasses osztálydiagramot azért mellékeltem hogy az  adatmodellel ügyködő kódrészek ne legyenek teljesen kínaiak. Fos és  összetett lett de sajnos mivel az én projektemben az entity framework  kódból generálta az adatbázissémát így rászorultam a kódismétlésre meg  gány megoldásokra, sokat szoptam vele. A php-s lohere+nál nem lesz ez a  megkötés, ott ki lehet valami értelmesebbet találni.
 Magát a kódot nem is adtam, direkt csak a diagramot tájékozódás végett.
  
- 
+
 .-----------------------------------------------------------------------------.
 | 6) Utószó                                                                   |
 °-----------------------------------------------------------------------------°
