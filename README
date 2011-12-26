@@ -220,104 +220,22 @@ Wordfilterek
         like|lájk - rák (see: rákolnám)
 Ipéc Imre
 ---------
-    > http://www.lba.hu/egysorosak/viccesnevek.php
 Régi nevek:
+ipec_imre_old.csv
 
-    Aszt Aladár; Am Erika;
-
-    Ba Szonja; Bekre Pál; B. Elek; Bor Virág; Bőr Ödön; Budipa Piroska;
-
-    Ci Cili; Cicz Imre; Citad Ella :(; Csecs Emőke; Csin Csilla; Csúf Olga;
-
-    Dia Dóra; Dil Emma; Disz Nóra;
-
-    Egriv Áron; Elektrom Ágnes; Elgáncs Olga;
-
-    Fá Zoltán; Fejet Lenke; Feles Elek; Fiká Zoltán; Fo Soma;
-
-    Gá Zóra; Ge Cili; Gec Ilona; Git Áron; Go Jóska;
-
-    Har Mónika; Heu Réka; Hugyo Zoltán; Hú Zóra;
-
-    Ípéc Imre; It Aladár;
-
-    Ka Kata; Kala Pál; Kan Csoma; Ka Pál; Kapd Bea; Kasza Blanka; Ke Feri; Kloá Katalin; Koaxk Ábel; Ku Kinga; Kurb Linda; Kur Valentin;
-
-    Lapos Elemér; Lev Elek; Locsolók Anna;
-
-    Masztur Bálint; Meg Győző; Mikorka Kálmán; Minden Áron; Metall Ica; Mor Zsolt;
-
-    Nadr Ági; Nemer Eszti; Nemfá Zoltán; Nyúl Kálmán;
-
-    O Lajos; Orsz Ági;
-
-    Papl Andi; Pár Zoltán; Patkóm Ágnes; Petting Elek; Pop Simon; Pros Timi; Pun Cili; Punc Imre;
-
-    Rabsz Olga; Raj Zóra; Rész Egon;
-
-    Sma Cili; Sper Matyi; Sza Róbert; Szikla Szilárd;
-
-    Tank Aranka; Tök Ödön; Trab Antal;
-
-    Vadk Andi; Va Gina; Veg Eta; Vé Cézár; Ví Zóra; Vonal Zója;
-
-    Wincs Eszter;
-
-    Zs Irma; Zsíros B. Ödön
+Új nevek:
+ipec_imre_added.csv
 
 Speciális nevek:
 Ték Elek - (Postno % 100 == 0) && (Postno > 0) vagy poszt ideje x óra 00 perc;
  x eleme N és kisebb mint 24
  
-Ebéd Elek -12:00 <= poszt ideje < 13:00
+Ebéd Elek - 12:00 <= poszt ideje < 13:00
 Op Elemér - threadnyitó későbbi posztjai a threadben, magasabb a precedenciája
-mint ték eleknek
+mint a többinek
+
 404. poszt automatikusan HSZ nem található :3 << "Végérvényesen, valami
 elveszett. Féltem ami nincs, ez benne a vicc."
- 
-Új nevek:
-
-    Álné Vendel;
-
-    Bekre Pál;
-
-    Cig Ányos;
-
-    De Pista; Derp Egon; Den Emma; Dil Dóra; Durr Molly;
-
-    Ev Angelika; Ezot Erika; Ért Ede; Ét Cecil;
-
-    Fen Olga; Forcs Anna; Furf Ágota; Futana Rita;
-
-    Gém Elek; Git Huba;
-
-    Hat Áron; Hátr Ányos; Herp Egon; Herer Ákos; Hín Áron; H. Ivett; Hurr Katalin;
-
-    Iksz Dénes;
-
-    Kátr Ányos; Korán K. Elek; Kovács Üllõ; Kupa Kolos;
-
-    Lank Ábel;
-
-    Mol Eszter;
-
-    Nemeth Emma; Névte Lenke; Nig Gergely; Nigg Ernő;
-
-    O. Boáz; Ó. Teréz;
-
-    Parc Ella; Pi Sára;
-
-    Ráfá Zoltán; Rá Kálmán; Robb Anna;
-
-    Só Dzsó; Szmeg Margit; Szopó Ági;
-
-    Törd Elek; Tró Gergely;
-
-    Vérsz Ívó; Vizi Lóránt;
-
-    Wa Szabi;
-
-    Zsi Dóra; Zuh Anna;
 
 Ípéc Imrékre leaderboard: Azaz, vezethetnénk pusztán a neveket ip meg miegymás
 nélkül hogy:
@@ -330,13 +248,12 @@ funky
 http://www.poee.org/documents/Principia_Discordia/scans/00034.gif
 discordian discordian date megvalósítása ószom lenne :3<< ÉLJEN ÉRISZ, ÉLJEN DISZKORDIA - ja és ráadásul lunixokban alapból van rá konverziós fv.
  
- 
 .-----------------------------------------------------------------------------.
-| 5) további padok                                                            |
+| 5) további fájlok                                                           |
 °-----------------------------------------------------------------------------°
     AJAX WEB API kidolgozás alatt: http://piratepad.net/lohereplus-web-api
-    ADATBÁZIS: http://piratepad.net/lohereplusz-adatbazis
-    SED KOMMENTÁRJÁNAK VELEJE: http://piratepad.net/sedthhappendix
+    ADATBÁZIS: DB_SCHEMA
+    SED KOMMENTÁRJÁNAK VELEJE: SEDTHH_AJANLASAI
  
 .-----------------------------------------------------------------------------.
 | 6) Simon reamdeje az aspchanhoz                                             |
