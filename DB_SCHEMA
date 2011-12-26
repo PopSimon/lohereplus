@@ -1,224 +1,137 @@
 ﻿USER:
 Felhasználók és adataik
-
     [INT] uid PRIMARY KEY: ez a user ID-je.
-
     [VARCHAR(33)] username UNIQUE: felhasználói bejelentkezési azonosító
-
     [VARCHAR(33)] password: jelszóHASH
-
     [VARCHAR(33)] salt: só a jelszóhashez //DEL? - egy adatbaszás (vagy akár weboldal), egy salt; nem userenként van osztva tudtommal.
-
     // displayname DELETED - rossz helyen van, ez a posztokhoz kell.
-
     [INT] rights: user szerepkörök:
-
     0 - usr
-
     1 - mod
-
     2 - admin
-
     [DATETIME] regDate: a felhasználó regisztrációjának idopontja
-
     [DATETIME] lastDate: az utolsó bejelentkezés idopontja 
-
     [VARCHAR(33)] regIP: a felhasználó regisztrációs IP-jének HASH-e
-
     // lastIP DELETED - ehelyett van egy sokkal jobb megoldás, lásd: IP tábla.
-
     [BOOL] isBanned: egyértelmu
-
     [BOOL] isAnon: user-default globálisan, a szkriptek a szkript mezoben nagyobb a prioritása mint ennek.
-
     [BOOL] isAnon2: -"-, csak nem Anonymous, hanem ípéc imrékkel. mind2 nem lehet true, ami a felületen van megoldva, és ha mind2 false akkor a default az username.
-
     [?] cssSkin: kíválasztott skin, sztem ez lehet varchar, mert akkor nem kell szarakodni azzal, hogy a funkcióban kelljen megfeleltetni idket a megjelenítendo nevekkel.
-
     [BOOL] lazyLoad: egyértelmu
-
     [BOOL] htmlView: egyértelmu
 
 IP:
-
     [VARCHAR(33)] ipHash PRIMARY KEY: egy ip hash-e 
-
     [DATETIME] seenDate: ezen még gondolkozom hogy kell-e...
-
     [INT] uid REFERENCES USERS.uid: ezzel kötünk iphasheket userhez aka külso kulcs
 
 BOARD:
-
     [INT] bid PRIMARY KEY: board azonosító
-
     [VARCHAR(17)] name UNIQUE: board neve (pl. "b") -> TODO: aliasok <- done, ld. lent.
-
     [VARCHAR(45)] desc: board leírása (pl. "random")
-
     [?] cssSkin: board-default skin.
-
     [BOOL] bsoverus: true -> board skinje felülírja user által választottat.
-
     [BOOL] isHidden: rejtett VIP-e a board, CSAK A BOARDNÁL IDOSEBB KIVÁLASZTOTTAK LÁTHATJÁK (meg az aranytagságot kifizetok) :CCCCC
-
     [BOOL] isSecured: védelmi plusz: auto deferrer linkekre pl. ha valaki huncutságot muvel ne lehessen visszakövetni
-
     [BOOL] isLocked: szarakodjatok másik boardon :C
-
     //[BOOL] isNSFW: egyértelmu
-
     [INT] maxThreadNumber: hány fonák lehet egyszerre az adott boardon.
-
     [INT] threadsPerPage: hány fonák látszódjon egyszerre egy oldalon (pontosabban hány fonalat ad vissza a motor egyszerre egy egész boardra vonatkozó kérésre). ebbol meg a felette lévobol lehet ugyebár kiszámítani hány oldal lesz boardonként.
-
     [INT] postDelaySecs: másodpercben a késleltetés míg egy user nem írhat hozzászólást.
-
     // isAlias DELETED pont azért, mert az aliasID-bol úgyis kiderül.
-
     [INT] aliasID: ha az, akkor melyiké, amúgy NULL
 
 FTOFB:
 A boardok és a fájltípusok közötti relációt leképezo tábla
 A boards_id és a fileTypes id együtt egy összetett kulcs!
-
     [INT] bid REFERENCES BOARDS.bid: külso kulcs egy boardra
-
     [INT] fid REFERENCES FILETYPES.fid: külso kulcs egy fájltípust leíró rekordra
-
     [INT] maxFileSize: az adott filetípus maximális mérete az adott boardon, bájtban
-
     PRIMARY KEY (bid,fid)
 
 FILETYPE:
 File típusok táblája
-
     [INT] fid PRIMARY KEY: fájltípus azonosító.
-
     [VARCHAR(9)] ext: windowsos filekiterjesztés //nem unique!
-
     [VARCHAR(45)] mime: mime típus
-
     [TEXT] magicNumber: a file varázsszáma a filetípus manuális ellenorzésére (nem hiszem hogy implementálva lesz, de hátha kell) //VARCHAR vagymeg BLOB... text nemlétezo típus.
-
     [VARCHAR(45)] icon: ha nem tumbli kép, hanem más, akkor milyen ikont tegyen a helyére (szerveren lesz /gfx mappába)
 
 THREAD:
-
     [INT] tid PRIMARY KEY: thread id
-
     [BOOL] isDeleted: "törölt" kézzel, vagy zsálya <- deleted threadek nem mennek purgatoryba.
-
     [BOOL] isLocked: zárva-e
-
     [BOOL] isSticky: sticky-e
-
     [INT] bid REFERENCES BOARD.bid: melyik boardon van a thred.
-
     [DATE] lastPostDate: uccsó poszt dátuma, eszerint lehetne rendezni
-
     [BOOL] isDroppedOff: ha már leesett akkor ez igaz, és akkor átkerül egy purgatory boardra, ami tele van más boardok pillanatnyi droppolt thredjeivel amik még nincsenek törölve.
-
     [INT] purgBumpsReceived: purgatóriumban kapott új hsz-ek száma; eszerint rendezve kerülne az elso pár thread vissza a saját boardjaikra a napok végén.
 
 POST:
-
     [INT] uid REFERENCES USER.uid
-
     [INT] bid REFERENCES BOARD.bid
-
     [INT] tid REFERENCES THREAD.tid
-
     [INT] pid PRIMARY KEY: post id (méghozzá thread-globális, azaz board-szerinti)
-
     [VARCHAR(33)] displayName: megjelenítendo név //itt kell ennek lennie
-
     [INT] nid REFERENCES ANON2.nid //pillanatnyi ipbol vagy a hashbol csinál ipécimrét.
-
     [DATETIME] postDate: egyértelmu
-
-    [VARCHAR(2049)] text: szövegtörzs //a feldolgozott szöveget kéne letárolni, mert úgy gyorsabb lenne a megjelenítés.
-
+    [VARCHAR(2049)] text: szövegtörzs //a feldolgozott szöveget kéne letárolni, mert úgy gyorsabb lenne a megjelenítés. Akkor viszont a méretre figyelni kell!!!!!!!!!
     [VARCHAR(1025)] banText: külön van tárolva a posztért bannolás szövege, default = NULL
-
     [INT] local_pid: threaden belüli posztszám.
-
     [BOOL] isDelNominated: ha igaz akkor rejtve lesz, míg ütemezett törlésnél törlodik.
 
 IMGTOPOST:
-
     [INT] bid REFERENCES BOARD.bid
-
     [INT] pid REFERENCES POST.pid
-
     [INT] iid REFERENCES IMAGE.iid
-
     [INT] imggalleryid
-
     PRIMARY KEY (bid,pid,iid,imggalleryid)
 
 IMAGE:
-
     [INT] iid PRIMARY KEY: kép id
-
     [CHAR(33)]  md5hash UNIQUE: sroblem prolved.
-
     [VARCHAR(256)] origFilename //255+\0
-
     [VARCHAR(?)] unixTimestamp //lehet intben kéne, mert kevesebb hely, viszont akkor konvertálgatni kéne...
-
     [?] vagy út a fájlhoz a szerveren, unixtimestamp névvel ofc., vagy meg egy blob, aminek annyi elonye hogy sql-ben lesz a fájl, de nem ramban, kb. mint egy fájlpointer.
-
     [BOOL] isSpoiler: ha true akkor a board specifikus spoiler imádzst tölti be
-
     //[BOOL] isNSFW: -"-, mind2 nem lehet egyszerre true, viszont nemtom melyik legyen az erosebb.
-
 kell ennek imageid mert db nem rendezett, eredeti filenév meg esetleg letárolni az unix timestampet hogy ne realtime kelljen számolgatni azt (és hogy meglegyen ha netán maga a fájl elveszne)
 ill. ide jön még egy isspoilered és egy esetleges isnsfw bool is.
 érdemes lenne a thumbsokat úgy tárolni mint máshol, /board/tn/ alkönyvtárba, és nix timestampes névvel, illetve ha a spoileres bool igaz akkor egy helyrol húzza át a spoilerimg-tm, ugyanígy az nsfw-vel ha lesz.
+
 LEADERBOARD:
-
     [VARCHAR(45)] name: ípéc imrék ameddig a citad ellát
-
     [INT] bid REFERENCES BOARD.bid: 0 = globális bejegyzés, különben helyi, azaz boardonkénti. -> emiatt name nem kulcs, csak boardid + name.
-
     [INT] allposts: valahai posztok száma amit ezen a megjelenített néven posztoltak
-
     [INT] aliveposts: pillanatnyilag élo posztok száma amit - " -
-
     [INT] uploaded: mennyit töltött fel
-
     [INT] embedded: mennyit embeddált
-
     [INT] banned: hányszor bannolták (hacsak nincs board specifikus ban, akkor csak a globálhoz kéne írni.
-
     PRIMARY KEY (name, bid)
-
 allposts meg aliveposts helyett lehetne egy INT months, ami havi bontást alkalmazna, ahol lenne két speciális érték, mondjuk a -1 ami a globálisat jelentené, és a 0 ami az éloket; de akkor egyre több szemetet kéne tárolni, az eredeti ötlettel meg csak 2*name*board a felso korlát. << frissítve purg. specifikációkhoz.
 leaderboard frissítése foleg POST()-nál történne, de bannolásnál is frissül.
+
 ANON2:
-
     [INT] nid PRIMARY KEY
-
     [VARCHAR(33)] name: ípéc imre
 
 ANNOUNCEMENT:
-
     [INT] aid PRIMARY KEY
-
     [VARCHAR(513)] text
 
 ANNOUNCEHANDLER:
-
     [INT] aid REFERENCES ANNOUNCEMENT.aid
-
     [INT] bid REFERENCES BOARD.bid
-
     PRIMARY KEY (aid,bid)
+
+FILTERS:
+    [TEXT] from
+    [TEXT] to
+    [BOOL] enabled
 
 Modules:
 Különbözo custom viccesXd filterekhez / egyéb modulokhoz tartozó adatbázisos háttértár. Pl. választható KÖCSÖG színek <- random(256) 3x a színcsatornákhoz meg concat....
+
 Egyéb:
-
     IP-címeket csak hashelve tárolunk, sünök ellen!
-
     BOARD.bid az 1-tol megy, a 0 az speciális, jelentése globális; nem NULL-al kéne szarakodnunk mert az gondokkal járhat ezesetben.<< és ha -1 lenne a globál? << felolem, de akkor 0 legyen a purgatory; attól hogy a threadek id-je nem állítódik át, még kell a boardnak tárolni a specifikációit.
