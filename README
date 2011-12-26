@@ -196,15 +196,10 @@ Egyéb
         az autómatizált műsorokat jó lenne szkriptbe megírhatóvá tenni, 
         amihez kell end_of_stream detektálási mehanizmus az enbedekre.
 
-Ipéc Imre
----------
-Régi nevek:
-ipec_imre_old.csv
-
-Új nevek:
-ipec_imre_added.csv
 
 Speciális nevek:
+----------------
+
 Ték Elek - (Postno % 100 == 0) && (Postno > 0) vagy poszt ideje x óra 00 perc;
  x eleme N és kisebb mint 24
  
