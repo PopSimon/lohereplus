@@ -1,4 +1,21 @@
-﻿USER:
+﻿
+
+
+
+
+
+
+NEM MINTHA ÉRNE EZ EGY KALAP FOST IS MÁR, CREATE.SQL-T ILLIK NÉZNI BÁR VANNAK EBBEN MÉG PÁR DOLGOK AMIK FONTOSAK NEMTUDOM.
+
+
+
+
+
+
+
+
+
+USER:
 Felhasználók és adataik
     [INT] uid PRIMARY KEY: ez a user ID-je.
     [VARCHAR(33)] username UNIQUE: felhasználói bejelentkezési azonosító
