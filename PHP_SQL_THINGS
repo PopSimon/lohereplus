@@ -1,0 +1,36 @@
+USERMANAGE szint: felhasználókkal kapcsolatos mysql lekérdezések
+
+     Regisztráció:
+          username, password kötelezõ (username nem ütközhet)
+          email, jelszóemlékeztetõ nem muszáj
+          kapcsa (login után nem lesz kapcsa posztolásnál)
+
+     Kezelõfelület:
+          password, email változtatás
+          anon, ípéc imre csekkolás (radiobutton anonymous,anonymous2,username a legegyszerûbb)
+          css skin (dropdown menu, nem szerepelnek benne a spec. boardok stílusai, se az epileptikusak)
+
+ADMINMANAGE szint: admin és mod eszközök mögött álló lekérdezések
+
+     Modály kezelõfelület (lehet inline kellene):
+          post ban,del
+          user ban,unban
+          image del
+          thread del,lock,sticky
+          announcement add,mod,del
+          postdelaysecs mod
+
+     Admin kezelõfelület (modály dolgain felül):
+          board add,mod,del
+          wordfilter add,mod,del
+          anon2 add,mod,del
+          ishidden,issecure,islocked mod
+          filetypeperboard add,mod,del
+
+POST szint: a POST függvény és a benne használt dolgok között fellelhetõ lekérdezések (sorrendbe)
+
+     sokminden...
+
+GET szint: oldallekérésnél használt lekérdezések
+
+     dettó...
