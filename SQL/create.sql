@@ -83,6 +83,7 @@ CREATE TABLE thread(
      isDroppedoff BOOL NOT NULL,
      purgbumpsreceived INTEGER,
      lastpostdate DATETIME NOT NULL,
+     currlocalpid INTEGER DEFAULT 0,
      bid INTEGER NOT NULL REFERENCES board.bid                                            /* b_id */
           ON UPDATE CASCADE
           ON DELETE CASCADE
@@ -115,51 +116,46 @@ CREATE TABLE post(
 
 # majd meg kell beszélnünk, hogy a POST fgv meghívásakor miket lehet a texten lefuttatni, illetve miket kell letárolni adattagonként a szkriptekből. -zorg
 
-CREATE TABLE image(
-     iid INTEGER NOT NULL PRIMARY KEY,                                                    /* i_id */
-     unixtimestamp INTEGER NOT NULL,
-     origfilename VARCHAR(255) NOT NULL,
-     ext VARCHAR(8) NOT NULL,
-     filesize INTEGER NOT NULL,
-     dim_x INTEGER NOT NULL,
-     dim_y INTEGER NOT NULL 
-)
-
-# ez így lesz megeggyezés alapján. -zorg
-
 #CREATE TABLE image(
-#    iid INTEGER NOT NULL PRIMARY KEY,                                                    /* i_id */
-#    md5hash VARCHAR() NOT NULL UNIQUE,
-#    ext VARCHAR(8) NOT NULL,
-#    filesize INTEGER NOT NULL,
-#    dim_x INTEGER NOT NULL,
-#    dim_y INTEGER NOT NULL   
-#);
-#    
-## unixtimestamp.ext formában elérhetőek a képek a boardonkénti mappákból.
-## ha boardonként akarjuk a képeket szűrni egyediség alapján, a bid külső kulcsnak az image táblában kell lennie
-#
-#CREATE TABLE imgpostlink(
-#    gid INTEGER NOT NULL,                      /* in-gallery image id */                 /* g_id */
-#    iid INTEGER NOT NULL REFERENCES image.iid,                                           /* i_id */
-#         ON UPDATE CASCADE
-#         ON DELETE CASCADE
-#    pid INTEGER NOT NULL REFERENCES post.pid,                                            /* p_id */
-#         ON UPDATE CASCADE
-#         ON DELETE CASCADE
-#    bid INTEGER NOT NULL REFERENCES board.bid,                                           /* b_id */
-#         ON UPDATE CASCADE
-#         ON DELETE CASCADE                     /* ezzel óvatosan */
-#    unixtimestamp INTEGER NOT NULL,
-#    origfilename VARCHAR(255) NOT NULL,
-#    isSpoiler BOOL NOT NULL,
-#    isNSFW BOOL NOT NULL,
-#    PRIMARY KEY(iid,gid,pid,bid)
-#);
-#
-## átbasztam a fájlneveket ide.
+#     iid INTEGER NOT NULL PRIMARY KEY,                                                    /* i_id */
+#     unixtimestamp INTEGER NOT NULL,
+#     origfilename VARCHAR(255) NOT NULL,
+#     ext VARCHAR(8) NOT NULL,
+#     filesize INTEGER NOT NULL,
+#     dim_x INTEGER NOT NULL,
+#     dim_y INTEGER NOT NULL 
+#) 
 
-# régi megvalósítás, felesleges komplexitás -zorg
+CREATE TABLE image(
+    iid INTEGER NOT NULL PRIMARY KEY,                                                    /* i_id */
+    md5hash VARCHAR() NOT NULL UNIQUE,
+    ext VARCHAR(8) NOT NULL,
+    filesize INTEGER NOT NULL,
+    dim_x INTEGER NOT NULL,
+    dim_y INTEGER NOT NULL   
+);
+    
+# unixtimestamp.ext formában elérhetőek a képek a boardonkénti virtuális mappákból
+
+CREATE TABLE imgpostlink(
+    gid INTEGER NOT NULL,                      /* in-gallery image id */                 /* g_id */
+    iid INTEGER NOT NULL REFERENCES image.iid,                                           /* i_id */
+         ON UPDATE CASCADE
+         ON DELETE CASCADE
+    pid INTEGER NOT NULL REFERENCES post.pid,                                            /* p_id */
+         ON UPDATE CASCADE
+         ON DELETE CASCADE
+    bid INTEGER NOT NULL REFERENCES board.bid,                                           /* b_id */
+         ON UPDATE CASCADE
+         ON DELETE CASCADE                     /* ezzel óvatosan */
+    unixtimestamp INTEGER NOT NULL,
+    origfilename VARCHAR(255) NOT NULL,
+    isSpoiler BOOL NOT NULL,
+    isNSFW BOOL NOT NULL,
+    PRIMARY KEY(iid,gid,pid,bid)
+);
+
+# átbasztam a fájlneveket ide, mert attól még hogy egy példányban van egy kép tárolva, még lehet más néven "feltöltve".
 
 CREATE TABLE anon2(
      nid INTEGER NOT NULL PRIMARY KEY,
@@ -205,7 +201,8 @@ CREATE TABLE announcehandler(
 # érveljetek gecyk
 
 CREATE TABLE filters(
-     regexp VARCHAR(1024) NOT NULL PRIMARY KEY,
+     filterid INTEGER NOT NULL PRIMARY KEY,
+     regexp VARCHAR(1024) NOT NULL,
      output VARCHAR(1024),
      isUsed BOOL NOT NULL
 );
