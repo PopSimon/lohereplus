@@ -1,5 +1,5 @@
-﻿CREATE DATABASE lohereplus;
-
+CREATE DATABASE lohereplus;
+USE lohereplus;
 #kommentek a táblakreálások alatt fognak szerepelni, és a komment feletti táblára vonatkoznak -zorg
 # /* */ közt lehet (nem ;-al lezárt) sorok mögé is, de ott inkább az egyező típusokat jelölöm, konzisztencia miatt.
 
@@ -10,7 +10,7 @@ CREATE TABLE user(
      userlevel INTEGER NOT NULL,
      regdate DATETIME NOT NULL,
      lastdate DATETIME NOT NULL,
-     regIPh VARCHAR() NOT NULL,                                                           /* IP_h */
+     regIPh VARCHAR(40) NOT NULL,                                                           /* IP_h */
      isAnon BOOL NOT NULL,
      isAnon2 BOOL NOT NULL,
      isLazyload BOOL NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE user(
 # isBanned bool eltüntetve mert nem támogat per-board ban-t.
 
 CREATE TABLE iphash(
-     IPh VARCHAR() NOT NULL,                                                              /* IP_h */
+     IPh VARCHAR(40) NOT NULL,                                                              /* IP_h */
      seendate DATETIME NOT NULL,
      uid INTEGER NOT NULL REFERENCES user.uid                                             /* u_id */
           ON UPDATE CASCADE                     /* nem fordulhat elő */
@@ -36,7 +36,7 @@ CREATE TABLE iphash(
 CREATE TABLE board(
      bid INTEGER NOT NULL PRIMARY KEY,                                                    /* b_id */
      name VARCHAR(16) NOT NULL UNIQUE,          /* /b/, /kocka/,... */
-     desc VARCHAR(64),                          /* SZOPKIGECIM HEEE */
+     descr VARCHAR(64),                          /* SZOPKIGECIM HEEE */
      cssSkin VARCHAR(32) NOT NULL DEFAULT 'lohere',                                       /* sCSS */
      cssOverride BOOL NOT NULL,
      isHidden BOOL NOT NULL,                    /* nem tölti be a boardot */
@@ -69,7 +69,7 @@ CREATE TABLE filetype(
      fid INTEGER NOT NULL PRIMARY KEY,                                                    /* f_id */
      ext VARCHAR(8) NOT NULL,
      mime VARCHAR(48),
-     magic CLOB,
+     magic BLOB, /* nincs clob mysqlben :C */
      icon VARCHAR(32)
 );
 
@@ -93,18 +93,18 @@ CREATE TABLE thread(
 
 CREATE TABLE post(
      pid INTEGER NOT NULL,                                                                /* p_id */
-     uid INTEGER NOT NULL REFERENCES user.uid,                                            /* u_id */
+     uid INTEGER NOT NULL REFERENCES user.uid                                             /* u_id */
           ON UPDATE CASCADE
-          ON DELETE SET NULL
-     tid INTEGER NOT NULL REFERENCES thread.tid,                                          /* t_id */
+          ON DELETE SET NULL,
+     tid INTEGER NOT NULL REFERENCES thread.tid                                           /* t_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     bid INTEGER NOT NULL REFERENCES board.bid,                                           /* b_id */
+          ON DELETE CASCADE,
+     bid INTEGER NOT NULL REFERENCES board.bid                                            /* b_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     nid INTEGER NOT NULL REFERENCES anon2.nid,                                           /* n_id */
+          ON DELETE CASCADE,
+     nid INTEGER NOT NULL REFERENCES anon2.nid                                            /* n_id */
           ON UPDATE CASCADE
-          ON DELETE SET NULL
+          ON DELETE SET NULL,
      localpid INTEGER,                                                                    /* p_id */
      dispName VARCHAR(32),                                                                /* name */
      postdate DATETIME NOT NULL,
@@ -128,7 +128,7 @@ CREATE TABLE post(
 
 CREATE TABLE image(
     iid INTEGER NOT NULL PRIMARY KEY,                                                    /* i_id */
-    md5hash VARCHAR() NOT NULL UNIQUE,
+    md5hash VARCHAR(32) NOT NULL UNIQUE,
     ext VARCHAR(8) NOT NULL,
     filesize INTEGER NOT NULL,
     dim_x INTEGER NOT NULL,
@@ -139,15 +139,15 @@ CREATE TABLE image(
 
 CREATE TABLE imgpostlink(
     gid INTEGER NOT NULL,                      /* in-gallery image id */                 /* g_id */
-    iid INTEGER NOT NULL REFERENCES image.iid,                                           /* i_id */
+    iid INTEGER NOT NULL REFERENCES image.iid                                            /* i_id */
          ON UPDATE CASCADE
-         ON DELETE CASCADE
-    pid INTEGER NOT NULL REFERENCES post.pid,                                            /* p_id */
+         ON DELETE CASCADE,
+    pid INTEGER NOT NULL REFERENCES post.pid                                             /* p_id */
          ON UPDATE CASCADE
-         ON DELETE CASCADE
-    bid INTEGER NOT NULL REFERENCES board.bid,                                           /* b_id */
+         ON DELETE CASCADE,
+    bid INTEGER NOT NULL REFERENCES board.bid                                            /* b_id */
          ON UPDATE CASCADE
-         ON DELETE CASCADE                     /* ezzel óvatosan */
+         ON DELETE CASCADE,                    /* ezzel óvatosan */
     unixtimestamp INTEGER NOT NULL,
     origfilename VARCHAR(255) NOT NULL,
     isSpoiler BOOL NOT NULL,
@@ -165,12 +165,12 @@ CREATE TABLE anon2(
 # érveljetek gecyk
 
 CREATE TABLE leaderboard(
-     nid INTEGER NOT NULL REFERENCES anon2.bid,                                           /* n_id */
+     nid INTEGER NOT NULL REFERENCES anon2.bid                                            /* n_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     bid INTEGER REFERENCES board.bid,                                                    /* b_id */
+          ON DELETE CASCADE,
+     bid INTEGER REFERENCES board.bid                                                     /* b_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
+          ON DELETE CASCADE,
      allposts INTEGER,
      aliveposts INTEGER,
      uploaded INTEGER,
@@ -189,12 +189,12 @@ CREATE TABLE announcement(
 # érveljetek gecyk
 
 CREATE TABLE announcehandler(
-     aid INTEGER NOT NULL REFERENCES announcement.aid,                                    /* a_id */
+     aid INTEGER NOT NULL REFERENCES announcement.aid                                     /* a_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     bid INTEGER NOT NULL REFERENCES board.bid,                                           /* b_id */
+          ON DELETE CASCADE,
+     bid INTEGER NOT NULL REFERENCES board.bid                                            /* b_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
+          ON DELETE CASCADE,
      PRIMARY KEY(aid,bid)
 );
 
@@ -202,7 +202,7 @@ CREATE TABLE announcehandler(
 
 CREATE TABLE filters(
      filterid INTEGER NOT NULL PRIMARY KEY,
-     regexp VARCHAR(1024) NOT NULL,
+     reg_exp VARCHAR(1024) NOT NULL,
      output VARCHAR(1024),
      isUsed BOOL NOT NULL
 );
@@ -211,15 +211,15 @@ CREATE TABLE filters(
 
 CREATE TABLE ban(
      id INTEGER NOT NULL PRIMARY KEY,
-     uid INTEGER NOT NULL REFERENCES user.uid,                                            /* u_id */
+     uid INTEGER NOT NULL REFERENCES user.uid                                             /* u_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     bid INTEGER NOT NULL REFERENCES board.bid,                                           /* b_id */
+          ON DELETE CASCADE,
+     bid INTEGER NOT NULL REFERENCES board.bid                                            /* b_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     submitter INTEGER NOT NULL REFERENCES user.uid,                                      /* u_id */
+          ON DELETE CASCADE,
+     submitter INTEGER NOT NULL REFERENCES user.uid                                       /* u_id */
           ON UPDATE CASCADE
-          ON DELETE SET NULL
+          ON DELETE SET NULL,
      submitted DATETIME NOT NULL,
      expires DATETIME
 );
@@ -227,10 +227,10 @@ CREATE TABLE ban(
 #TODO: board specifikus ban lehetőség -> userrel egybeköttöt tábla <- done
 
 CREATE TABLE modwatcher(
-     uid INTEGER NOT NULL REFERENCES user.uid,                                            /* u_id */
+     uid INTEGER NOT NULL REFERENCES user.uid                                             /* u_id */
           ON UPDATE CASCADE
-          ON DELETE CASCADE
-     deed VARCHAR(2048) NOT NULL,
+          ON DELETE CASCADE,
+     deed VARCHAR(767) NOT NULL,
      accomplished DATETIME NOT NULL,
      PRIMARY KEY(uid,accomplished,deed)
 );
