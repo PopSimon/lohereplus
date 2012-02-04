@@ -11,8 +11,7 @@ CREATE TABLE user(
      regdate DATETIME NOT NULL,
      lastdate DATETIME NOT NULL,
      regIPh VARCHAR(40) NOT NULL,                                                           /* IP_h */
-     isAnon BOOL NOT NULL,
-     isAnon2 BOOL NOT NULL,
+     dispNameType SMALLINT NOT NULL,
      isLazyload BOOL NOT NULL,
      isHTMLview BOOL NOT NULL,
      cssSkin VARCHAR(32) NOT NULL DEFAULT 'lohere'                                        /* sCSS */
@@ -21,6 +20,7 @@ CREATE TABLE user(
 # regIPh az a regisztrációnál használt ip hash-e, ha a hash kötött karakterhosszúságú, akkor legyen CHAR(n).
 # isAnon és isAnon2 nem lehet egyszerre 1, de 0 igen; erről gondoskodni kell majd a "profil lap" funkcionalitásában.
 # isBanned bool eltüntetve mert nem támogat per-board ban-t.
+# isanon, isanon2 mergelve dispNameType-ba
 
 CREATE TABLE iphash(
      IPh VARCHAR(40) NOT NULL,                                                              /* IP_h */
@@ -47,10 +47,12 @@ CREATE TABLE board(
      maxthreadnumber INTEGER NOT NULL,
      threadsperpage INTEGER NOT NULL,
      postdelaysecs INTEGER,
+     currlocalpid INTEGER NOT NULL,
+     currlocaltid INTEGER NOT NULL,
      primary_board_if_alias INTEGER                                                       /* b_id */
 );
 
-# érveljetek gecyk
+# addoltam a nyilvántartó dolgokat, amik poszt/thredtörlés hatására is maradnak a seggükön
 
 CREATE TABLE ftypeboardlink(
      bid INTEGER NOT NULL REFERENCES board.bid                                            /* b_id */
@@ -131,8 +133,9 @@ CREATE TABLE image(
     md5hash VARCHAR(32) NOT NULL UNIQUE,
     ext VARCHAR(8) NOT NULL,
     filesize INTEGER NOT NULL,
-    dim_x INTEGER NOT NULL,
-    dim_y INTEGER NOT NULL   
+    dim_x INTEGER,
+    dim_y INTEGER,
+    length_sec INTEGER   
 );
     
 # unixtimestamp.ext formában elérhetőek a képek a boardonkénti virtuális mappákból
