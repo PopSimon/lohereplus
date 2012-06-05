@@ -1,0 +1,16 @@
+b->p        k->g    
+c->dz       p->b
+cc->dzz     s->zs
+cs->dzs     sz->z
+ccs->ddzs   ssz->zz
+d->t        t->d
+dz->c       ty->gy
+ddz->cc     tty->ggy
+dzs->cs     v->f
+ddzs->ccs   w->f
+f->v        x->gz
+g->k        xx->ggz
+gy->ty      z->sz
+zz->ssz
+zs->s
+zzs->ss
