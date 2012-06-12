@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Processer</title>
+    
+    <script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: Processer</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="c752b5a713.html">model/texttools/processabletools</a><a href="0ddaf24dba.html">.Processing</a>.</span>
+    
+    Processer
+    </h2>
+    
+        <div class="class-description">Represents a Token Processer object, that will be given to the tokens' process method.
+See <a href="cee8206d9e.html#process">module:model/texttools/processabletools.Tokens.Token#process</a><br /><br />
+<strong>It's methods are empty by default.</strong><br /><br />
+Implements the Callback pattern. Roles:
+<dl>
+   <dt> <a href="cee8206d9e.html#process">module:model/texttools/processabletools.Tokens.Token#process</a> </dt><dd> Caller </dd>
+   <dt> <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a> </dt><dd> Callback object </dd>
+   <dt> <a href="ae3b57e827.html#onMatch">module:model/texttools/processabletools.Processing.Processer#onMatch</a> </dt><dd> Callback function </dd>
+</dl></div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Processer"><span class="type-signature"></span>new Processer</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new instance of Processer.
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 566</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="regExp"><span class="type-signature"></span>regExp<span class="type-signature"> :RegExp</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        A regular expression the maches will be based on.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 588</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="root"><span class="type-signature"></span>root<span class="type-signature"> :<a href="d09fba20fd.html">module:model/texttools/processabletools.ProcessableText</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The ProcessableText instance the processer instance will work on.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 571</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="onEnd"><span class="type-signature"></span>onEnd</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The method <a href="d09fba20fd.html#process">module:model/texttools/processabletools.ProcessableText#process</a> calls this function back at the end of the processing.
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 604</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onMatch"><span class="type-signature"></span>onMatch</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The method <a href="cee8206d9e.html#process">module:model/texttools/processabletools.Tokens.Token#process</a> calls this function back if a match based on 
+<a href="ae3b57e827.html#regExp">module:model/texttools/processabletools.Processing.Processer#regExp</a> is found.<br />
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>index</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The matched sequence's position in the whole ProcessableText, <em>not in the actual token</em>.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>match</code></td>
+            
+            
+            <td class="type">
+            
+                        string
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The last matched sequence.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>submatcharray</code></td>
+            
+            
+            <td class="type">
+            
+                        array
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The parenthesized substring matches, if any. See the documentation of RegExp.exec.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 596</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="onStart"><span class="type-signature"></span>onStart</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The method <a href="d09fba20fd.html#process">module:model/texttools/processabletools.ProcessableText#process</a> calls this function back at the start of the processing.
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 600</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="c752b5a713.html">model/texttools/processabletools</a></li></ul><h3>Classes</h3><ul><li><a href="d09fba20fd.html">ProcessableText</a></li><li><a href="ae3b57e827.html">Processer</a></li><li><a href="f55c798aef.html">Replacer</a></li><li><a href="407fc21296.html">Tokenizer</a></li><li><a href="62a3f974fd.html">Empty</a></li><li><a href="b13ce427b5.html">Fork</a></li><li><a href="50e0b6b18a.html">Interval</a></li><li><a href="6e838ac233.html">Leaf</a></li><li><a href="cee8206d9e.html">Token</a></li></ul><h3>Namespaces</h3><ul><li><a href="0ddaf24dba.html">Processing</a></li><li><a href="7b81d79eb7.html">Tokens</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Tue Jun 12 2012 14:37:32 GMT+0200 (CEST)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>

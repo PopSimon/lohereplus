@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: ProcessableText</title>
+    
+    <script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: ProcessableText</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="c752b5a713.html">model/texttools/processabletools</a>.</span>
+    
+    ProcessableText
+    </h2>
+    
+        <div class="class-description">A facade over tokens. See <a href="cee8206d9e.html">module:model/texttools/processabletools.Tokens.Token</a>.</div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="ProcessableText"><span class="type-signature"></span>new ProcessableText</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new instance of ProcessableText.
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>string</code></td>
+            
+            
+            <td class="type">
+            
+                        string
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The textual content of the object.</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 651</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="length"><span class="type-signature"></span>length<span class="type-signature"> :number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Accessor to the length of the text.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 718</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="root"><span class="type-signature"></span>root<span class="type-signature"> :<a href="b13ce427b5.html">module:model/texttools/processabletools.Tokens.Fork</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The root of the token-tree which represents the textual content of the owner
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 656</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="process"><span class="type-signature"></span>process</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Process the the text with the given processer object.
+Delegates the call to the root token <a href="d09fba20fd.html#root">module:model/texttools/processabletools.ProcessableText#root</a>, see <a href="cee8206d9e.html#process">module:model/texttools/processabletools.Tokens.Token#process</a><br /><br />
+Implements the Callback pattern. Roles:
+<dl>
+   <dt> <a href="d09fba20fd.html#process">module:model/texttools/processabletools.ProcessableText#process</a> </dt><dd> Caller </dd>
+   <dt> <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a> </dt><dd> Callback object </dd>
+   <dt> <a href="ae3b57e827.html#onMatch">module:model/texttools/processabletools.Processing.Processer#onMatch</a> </dt><dd> Callback function </dd>
+</dl>
+See <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a>
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>processer</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 689</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the owner istself, for function chaining
+</div>
+
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">module:model/texttools/processabletools.ProcessableText</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="replace"><span class="type-signature"></span>replace</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Replace substings in the text with the return value of the given replacer object's replace method.
+Delegates the call to the root token <a href="d09fba20fd.html#root">module:model/texttools/processabletools.ProcessableText#root</a>,
+see <a href="cee8206d9e.html#replace">module:model/texttools/processabletools.Tokens.Token#replace</a><br /><br />
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>replacer</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="f55c798aef.html">module:model/texttools/processabletools.Processing.Replacer</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 707</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the owner istself, for function chaining
+</div>
+
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">module:model/texttools/processabletools.ProcessableText</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="c752b5a713.html">model/texttools/processabletools</a></li></ul><h3>Classes</h3><ul><li><a href="d09fba20fd.html">ProcessableText</a></li><li><a href="ae3b57e827.html">Processer</a></li><li><a href="f55c798aef.html">Replacer</a></li><li><a href="407fc21296.html">Tokenizer</a></li><li><a href="62a3f974fd.html">Empty</a></li><li><a href="b13ce427b5.html">Fork</a></li><li><a href="50e0b6b18a.html">Interval</a></li><li><a href="6e838ac233.html">Leaf</a></li><li><a href="cee8206d9e.html">Token</a></li></ul><h3>Namespaces</h3><ul><li><a href="0ddaf24dba.html">Processing</a></li><li><a href="7b81d79eb7.html">Tokens</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Tue Jun 12 2012 14:37:30 GMT+0200 (CEST)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>

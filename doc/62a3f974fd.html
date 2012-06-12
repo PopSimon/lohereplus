@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Class: Empty</title>
+    
+    <script src="http://shjs.sourceforge.net/sh_main.min.js"> </script>
+    <script src="http://shjs.sourceforge.net/lang/sh_javascript.min.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/node-dark.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+    
+    <h1 class="page-title">Class: Empty</h1>
+    
+    
+
+
+
+<section>
+    
+<header>
+    <h2>
+        <span class="ancestors"><a href="c752b5a713.html">model/texttools/processabletools</a><a href="7b81d79eb7.html">.Tokens</a>.</span>
+    
+    Empty
+    </h2>
+    
+        <div class="class-description">Represents a token withouth content, an empty leaf in the token-tree.<br />
+<em>The "emptiness" doesn't necessarily mean that it's render method will return an empty string.</em></div>
+    
+</header>  
+
+<article>
+    <div class="container-overview">
+    
+    
+    
+        
+<dt>
+    <h4 class="name" id="Empty"><span class="type-signature"></span>new Empty</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Create a new instance of Empty.
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+            
+            <td class="type">
+            
+                        string
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The (hidden) content of the token.</td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>interval</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="50e0b6b18a.html">module:model/texttools/processabletools.Tokens.Interval</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">The interval-descriptor of the token's position in the original sequence</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 370</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="6e838ac233.html">module:model/texttools/processabletools.Tokens.Leaf</a></li>
+        </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="interval"><span class="type-signature"></span>interval<span class="type-signature"> :<a href="50e0b6b18a.html">module:model/texttools/processabletools.Tokens.Interval</a></span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The interval-descriptor of the token's position in the original sequence
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-default">Default Value:</dt>
+	<dd class="tag-default"><ul class="dummy"><li>Interval( 0, content.length )</li></ul></dd>
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 109</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="length"><span class="type-signature"></span>length<span class="type-signature"> :number</span></h4>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Accessor to the length of the owner token's content.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 124</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+        <h3 class="subsection-title">Methods</h3>
+        
+        <dl>
+            
+<dt>
+    <h4 class="name" id="process"><span class="type-signature"></span>process</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Process the the token with the given processer object. Runs a search on the token's
+content based on the given processer's regExp and if a match is found, calls the 
+<a href="ae3b57e827.html#onMatch">module:model/texttools/processabletools.Processing.Processer#onMatch</a> method back with the results.<br /><br />
+<em>It could find matches only inside of the leaf tokens interval, cross-border matches remains unnoticed!</em><br /><br />
+Implements the Callback pattern. Roles:
+<dl>
+   <dt> <a href="cee8206d9e.html#process">module:model/texttools/processabletools.Tokens.Token#process</a> </dt><dd> Caller </dd>
+   <dt> <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a> </dt><dd> Callback object </dd>
+   <dt> <a href="ae3b57e827.html#onMatch">module:model/texttools/processabletools.Processing.Processer#onMatch</a> </dt><dd> Callback function </dd>
+</dl>
+See <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a>
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>processer</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="ae3b57e827.html">module:model/texttools/processabletools.Processing.Processer</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 178</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="render"><span class="type-signature"></span>render</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Renders out the content of the token.
+    </div>
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 133</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">string</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="replace"><span class="type-signature"></span>replace</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Replace substings in the token's content with the return value of the given replacer object's replace method. Runs a search on the token's
+content based on the given replacer's regExp and if a match is found, calls the 
+<a href="f55c798aef.html#replace">module:model/texttools/processabletools.Processing.Replacer#replace</a> method back with the results.
+It uses the string.replace method<br /><br />
+<em>It could find matches only inside of the leaf tokens interval, cross-border matches remains unnoticed!</em><br /><br />
+Implements the Callback pattern. Roles:
+<dl>
+   <dt> <a href="cee8206d9e.html#replace">module:model/texttools/processabletools.Tokens.Token#replace</a> </dt><dd> Caller </dd>
+   <dt> <a href="f55c798aef.html">module:model/texttools/processabletools.Processing.Replacer</a> </dt><dd> Callback object </dd>
+   <dt> <a href="f55c798aef.html#replace">module:model/texttools/processabletools.Processing.Replacer#replace</a> </dt><dd> Callback function </dd>
+</dl>
+See <a href="f55c798aef.html">module:model/texttools/processabletools.Processing.Replacer</a>
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>replacer</code></td>
+            
+            
+            <td class="type">
+            
+                        <a href="f55c798aef.html">module:model/texttools/processabletools.Processing.Replacer</a>
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 198</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="substring"><span class="type-signature"></span>substring</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Returns a substring of the token's textual content.
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the starting position of the desired substring
+                        <em>in the domain of the owner tokens interval</em></td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>end</code></td>
+            
+            
+            <td class="type">
+            
+                        number
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last">the ending position of the desired substring
+                        <em>in the domain of the owner tokens interval</em></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 323</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">string</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <h4 class="name" id="tokenize"><span class="type-signature"></span>tokenize</h4>
+    
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        Tokenize (transform / split) the the token with the given tokenizer object.<br />
+Implements the visitor pattern.
+<dl>
+   <dt> <a href="407fc21296.html">module:model/texttools/processabletools.Processing.Tokenizer</a> </dt><dd> Visitor </dd>
+   <dt> <a href="cee8206d9e.html">module:model/texttools/processabletools.Tokens.Token</a> </dt><dd> Visitable </dd>
+   <dt> <a href="cee8206d9e.html#tokenize">module:model/texttools/processabletools.Tokens.Token#tokenize</a> </dt><dd> accept </dd>
+   <dt> <a href="407fc21296.html#tokenizeNode">module:model/texttools/processabletools.Processing.Tokenizer#tokenizeNode</a> or <a href="407fc21296.html#tokenizeLeaf">module:model/texttools/processabletools.Processing.Tokenizer#tokenizeLeaf</a> </dt><dd> visit </dd>
+</dl>
+See module:model/texttools/processabletools/Processing.Tokenizer
+    </div>
+    
+    
+    
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>tokenizer</code></td>
+            
+            
+            <td class="type">
+            
+                        module:model/texttools/processabletools/Processing.Tokenizer
+                        
+                    
+            </td>
+            
+            
+            
+            
+            
+            <td class="description last"></td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<dt class="tag-source">Source:</dt>
+	<dd class="tag-source"><ul class="dummy"><li>./src/model/texttools/processabletools.js, line 159</li></ul></dd>
+	
+    
+    
+	
+	
+	
+	
+</dl>
+
+    
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the transformed token
+</div>
+
+
+
+
+<dl>
+	<dt>
+		Type
+	</dt>
+	<dd>
+		
+		<span class="param-type">module:model/texttools/processabletools.Tokens.Token</span> 
+		
+	</dd>
+</dl>
+
+        
+    
+    
+</dd>
+
+        </dl>
+    
+    
+    
+    
+    
+</article>
+
+</section>  
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Index</a></h2><h3>Modules</h3><ul><li><a href="c752b5a713.html">model/texttools/processabletools</a></li></ul><h3>Classes</h3><ul><li><a href="d09fba20fd.html">ProcessableText</a></li><li><a href="ae3b57e827.html">Processer</a></li><li><a href="f55c798aef.html">Replacer</a></li><li><a href="407fc21296.html">Tokenizer</a></li><li><a href="62a3f974fd.html">Empty</a></li><li><a href="b13ce427b5.html">Fork</a></li><li><a href="50e0b6b18a.html">Interval</a></li><li><a href="6e838ac233.html">Leaf</a></li><li><a href="cee8206d9e.html">Token</a></li></ul><h3>Namespaces</h3><ul><li><a href="0ddaf24dba.html">Processing</a></li><li><a href="7b81d79eb7.html">Tokens</a></li></ul>
+</nav>
+
+<br clear="both">
+
+<footer>
+    Documentation generated by <a href="https://github.com/micmath/jsdoc">JSDoc 3</a> on Tue Jun 12 2012 14:37:32 GMT+0200 (CEST)
+</footer>
+
+<script> sh_highlightDocument(); </script>
+</body>
+</html>
